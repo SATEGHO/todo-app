@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "DM Sans", "Helvetica Neue", sans-serif;
+    background: #ed4264;
+    background: linear-gradient(to right, #ffedbc, #ed4264);
+    padding-top: 100px;
+    overflow-x: hidden;
+}
+
+input,
+button {
+    outline: none;
+    border: none;
+    font-family: inherit;
+    background: transparent;
+}
+
+h1 {
+    color: #fff;
+    font-size: 35px;
+    margin-bottom: 4rem;
+    font-family: "Josefin Sans", sans-serif;
+    text-align: center;
+}
+
+.content-container {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.todo-form {
+    display: flex;
+
+    .todo-input {
+        width: 100%;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        padding: 0.5rem 0.7rem;
+        font-size: 1.5rem;
+        background-color: #fff;
+        color: #122942;
+
+        @media only screen and (max-width: 322px) {
+            font-size: 1.3rem;
+        }
+
+        &::placeholder {
+            font-size: 1.3rem;
+            color: #a8a8a8;
+
+            @media only screen and (max-width: 322px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .todo-button {
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        padding: 0.5rem 0.7rem;
+        font-size: 1.5rem;
+        background-color: #fff;
+        cursor: pointer;
+
+        @media only screen and (max-width: 322px) {
+            font-size: 1.3rem;
+        }
+
+        i {
+            pointer-events: none;
+            color: #ed4264;
+            background: #fff;
+            transition: all 0.3s ease 0s;
+        }
+
+        &:hover i {
+            color: #ed426475;
+        }
+    }
+}
+
+.todo-container {
+    padding-top: 50px;
+}
+
+.empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fafafa;
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease 0s;
+
+    @media only screen and (max-width: 322px) {
+        margin-bottom: 0.7rem;
+    }
+
+    &.fall.completed,
+    &.fall {
+        transform: translateX(8rem);
+        opacity: 0;
+    }
+
+    &.completed {
+        opacity: 0.6;
+        li {
+            text-decoration: line-through;
+        }
+    }
+
+    input[type="checkbox"] {
+        position: relative;
+        width: 1.6em;
+        height: 1.6em;
+        color: #000;
+        border: 1px solid gray;
+        border-radius: 4px;
+        appearance: none;
+        outline: 0;
+        cursor: pointer;
+        transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+        margin: 0 0.7rem;
+        &::before {
+            position: absolute;
+            content: "";
+            display: block;
+            top: 2px;
+            left: 7px;
+            width: 6px;
+            height: 10px;
+            border-style: solid;
+            border-color: #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+        }
+        &:checked {
+            color: #fff;
+            border-color: #ed4264;
+            background: #ed4264;
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    li {
+        flex: 1;
+        font-size: 1.3rem;
+        padding: 0 0.5rem;
+
+        @media only screen and (max-width: 322px) {
+            font-size: 1.1rem;
+        }
+    }
+
+    button {
+        padding: 0.8rem;
+        cursor: pointer;
+        color: #ed4264;
+        background: #fff;
+        font-size: 1.2rem;
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+        i {
+            pointer-events: none;
+        }
+    }
+
+    .change-btn {
+        background: #8cc34b;
+    }
+}
